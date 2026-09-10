@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avno1 好片-热门影视好片推荐与观影指南</title>
+    <meta name="description" content="avno1 好片专注于影视好片推荐，提供高分电影、经典剧集、热门新片、类型片单及深度观影指南，帮助你快速发现值得观看的优质内容。">
+    <meta name="keywords" content="avno1 好片,好片推荐,高分电影,经典剧集,热门影视,观影指南,片单推荐">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f5f3f0;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        .site-header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 14px 0;
+            border-bottom: 3px solid #e94560;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: #e94560;
+        }
+        .logo em {
+            font-style: normal;
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 28px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .main-nav a {
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .main-nav a:hover {
+            color: #e94560;
+            border-bottom-color: #e94560;
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+            background: #2d2d44;
+            border-radius: 30px;
+            padding: 4px 6px 4px 16px;
+        }
+        .nav-search input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 0.9rem;
+            width: 180px;
+        }
+        .nav-search button {
+            background: #e94560;
+            border: none;
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .nav-search button:hover {
+            background: #c73650;
+        }
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(120deg, #16213e 0%, #1a1a2e 60%, #0f3460 100%);
+            color: #fff;
+            padding: 70px 0 60px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -80px;
+            top: -40px;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(233,69,96,0.3), transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+        .hero-content h1 i {
+            color: #e94560;
+            font-style: normal;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 28px;
+            max-width: 580px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #e94560;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.25s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #ff5e7a;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: 0.25s;
+            display: inline-block;
+        }
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+        /* Section titles */
+        .section-title {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin: 46px 0 22px;
+            border-bottom: 2px solid #e2dcd3;
+            padding-bottom: 12px;
+        }
+        .section-title h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            position: relative;
+            padding-left: 16px;
+        }
+        .section-title h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 24px;
+            background: #e94560;
+            border-radius: 4px;
+        }
+        .section-title .more-link {
+            font-size: 0.9rem;
+            color: #888;
+            transition: 0.2s;
+        }
+        .section-title .more-link:hover {
+            color: #e94560;
+        }
+        /* Card grids */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 22px;
+        }
+        .movie-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .movie-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .card-poster {
+            height: 180px;
+            background: linear-gradient(145deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.75);
+            font-size: 3rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-poster .tag-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #e94560;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .card-body {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-body h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+            color: #1a1a2e;
+            line-height: 1.4;
+        }
+        .card-meta {
+            font-size: 0.8rem;
+            color: #9a9a9a;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+        }
+        .card-desc {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 14px;
+            flex: 1;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            border-top: 1px solid #f0ece6;
+            padding-top: 12px;
+            color: #999;
+        }
+        .card-footer .rating {
+            color: #f5a623;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .card-footer .watch-btn {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+        .card-footer .watch-btn:hover {
+            background: #e94560;
+        }
+        /* 类型标签 */
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 10px;
+        }
+        .genre-tag {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #444;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .genre-tag:hover {
+            background: #1a1a2e;
+            color: #fff;
+            border-color: #1a1a2e;
+        }
+        /* 榜单列表 */
+        .rank-list {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+        .rank-num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            width: 50px;
+            color: #ccc;
+        }
+        .rank-item:nth-child(1) .rank-num,
+        .rank-item:nth-child(2) .rank-num,
+        .rank-item:nth-child(3) .rank-num {
+            color: #e94560;
+        }
+        .rank-title {
+            flex: 1;
+            font-weight: 600;
+            font-size: 0.98rem;
+        }
+        .rank-score {
+            background: #fef3e2;
+            color: #b8860b;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+        .rank-cat {
+            font-size: 0.8rem;
+            color: #999;
+            background: #f5f5f5;
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
+        /* 资讯/指南 */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+        .guide-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+            border-left: 4px solid #e94560;
+            transition: 0.2s;
+        }
+        .guide-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .guide-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        .guide-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        /* FAQ */
+        .faq-section {
+            background: #fff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+            margin: 30px 0;
+        }
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f0ece6;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #1a1a2e;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .faq-q::before {
+            content: "Q";
+            background: #e94560;
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        .faq-a {
+            color: #666;
+            font-size: 0.92rem;
+            padding-left: 36px;
+            line-height: 1.7;
+        }
+        .faq-a::before {
+            content: "A";
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        /* 页脚 */
+        .site-footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 4px solid #e94560;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-brand h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            max-width: 260px;
+        }
+        .footer-links h5 {
+            color: #fff;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+        }
+        .footer-links a:hover {
+            color: #e94560;
+        }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .main-nav ul {
+                gap: 14px;
+                font-size: 0.85rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 18px;
+            }
+            .nav-search {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav-search input {
+                flex: 1;
+                max-width: 300px;
+            }
+            .hero {
+                padding: 45px 0;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 14px;
+            }
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            .rank-item {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .rank-num {
+                width: 36px;
+                font-size: 1.1rem;
+            }
+            .rank-score {
+                margin-left: 36px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .card-poster {
+                height: 140px;
+            }
+            .card-body {
+                padding: 14px;
+            }
+            .faq-section {
+                padding: 18px;
+            }
+            .faq-a {
+                padding-left: 10px;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo">avno1<span>好片</span><em>精选影视库</em></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">高分榜</a></li>
+                <li><a href="#">最新热映</a></li>
+                <li><a href="#">经典剧集</a></li>
+                <li><a href="#">类型片单</a></li>
+                <li><a href="#">观影指南</a></li>
+            </ul>
+        </nav>
+        <div class="nav-search">
+            <input type="text" placeholder="搜索片名、导演、演员...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero 首屏 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>发现 <i>avno1</i> 好片<br>每一部都值得你花时间</h1>
+                <p>从高分经典到小众佳作，从热映大片到口碑剧集——我们用心筛选真正好看的内容，帮你告别片荒，节省选片时间。</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary">浏览今日推荐</a>
+                    <a href="#" class="btn-outline">查看高分榜单</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门好片 -->
+    <div class="container">
+        <div class="section-title">
+            <h2>本周热门好片</h2>
+            <a href="#" class="more-link">查看全部 →</a>
+        </div>
+        <div class="card-grid">
+            <article class="movie-card">
+                <div class="card-poster" style="background: linear-gradient(135deg, #2b5876, #4e4376);">
+                    <span>🎬</span>
+                    <span class="tag-badge">热播</span>
+                </div>
+                <div class="card-body">
+                    <h3>漫长的季节</h3>
+                    <div class="card-meta"><span>2023</span><span>剧情 / 悬疑</span><span>12集</span></div>
+                    <p class="card-desc">一部横跨近二十年的东北往事，以出租车司机王响的视角展开，悬疑之下是时代与人的命运交织。</p>
+                    <div class="card-footer">
+                        <span class="rating">★ 9.4</span>
+                        <a href="#" class="watch-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+            <article class="movie-card">
+                <div class="card-poster" style="background: linear-gradient(135deg, #3a1c71, #d76d77);">
+                    <span>🎞️</span>
+                    <span class="tag-badge">口碑</span>
+                </div>
+                <div class="card-body">
+                    <h3>奥本海默</h3>
+                    <div class="card-meta"><span>2023</span><span>传记 / 历史</span><span>180分钟</span></div>
+                    <p class="card-desc">诺兰执导的传记巨制，聚焦“原子弹之父”的复杂人生与内心挣扎，IMAX 体验震撼。</p>
+                    <div class="card-footer">
+                        <span class="rating">★ 8.9</span>
+                        <a href="#" class="watch-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+            <article class="movie-card">
+                <div class="card-poster" style="background: linear-gradient(135deg, #4568dc, #b06ab3);">
+                    <span>📺</span>
+                    <span class="tag-badge">经典</span>
+                </div>
+                <div class="card-body">
+                    <h3>请回答1988</h3>
+                    <div class="card-meta"><span>2015</span><span>家庭 / 喜剧</span><span>20集</span></div>
+                    <p class="card-desc">双门洞五户人家的温暖日常，关于亲情、友情与青春，值得反复重温的治愈之作。</p>
+                    <div class="card-footer">
+                        <span class="rating">★ 9.7</span>
+                        <a href="#" class="watch-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+            <article class="movie-card">
+                <div class="card-poster" style="background: linear-gradient(135deg, #0f2027, #203a43);">
+                    <span>🌌</span>
+                    <span class="tag-badge">科幻</span>
+                </div>
+                <div class="card-body">
+                    <h3>星际穿越</h3>
+                    <div class="card-meta"><span>2014</span><span>科幻 / 冒险</span><span>169分钟</span></div>
+                    <p class="card-desc">诺兰的太空史诗，在浩瀚宇宙与人类情感之间寻找平衡，配乐与画面皆属顶级。</p>
+                    <div class="card-footer">
+                        <span class="rating">★ 9.4</span>
+                        <a href="#" class="watch-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- 类型片单标签 -->
+    <div class="container">
+        <div class="genre-tags">
+            <span class="genre-tag">🔥 高分剧情</span>
+            <span class="genre-tag">😄 喜剧片单</span>
+            <span class="genre-tag">🤖 科幻烧脑</span>
+            <span class="genre-tag">🔍 悬疑推理</span>
+            <span class="genre-tag">💕 爱情经典</span>
+            <span class="genre-tag">👻 惊悚恐怖</span>
+            <span class="genre-tag">📚 文学改编</span>
+            <span class="genre-tag">🎥 纪录片</span>
+        </div>
+    </div>
+
+    <!-- 高分榜单 + 新片速递 双栏 -->
+    <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+        <div>
+            <div class="section-title" style="margin-top: 0;">
+                <h2>豆瓣高分TOP10</h2>
+                <a href="#" class="more-link">完整榜单 →</a>
+            </div>
+            <div class="rank-list">
+                <div class="rank-item">
+                    <span class="rank-num">1</span>
+                    <span class="rank-title">肖申克的救赎</span>
+                    <span class="rank-score">9.7</span>
+                    <span class="rank-cat">剧情</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">2</span>
+                    <span class="rank-title">霸王别姬</span>
+                    <span class="rank-score">9.6</span>
+                    <span class="rank-cat">剧情</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">3</span>
+                    <span class="rank-title">阿甘正传</span>
+                    <span class="rank-score">9.5</span>
+                    <span class="rank-cat">剧情</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">4</span>
+                    <span class="rank-title">美丽人生</span>
+                    <span class="rank-score">9.5</span>
+                    <span class="rank-cat">战争</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">5</span>
+                    <span class="rank-title">泰坦尼克号</span>
+                    <span class="rank-score">9.5</span>
+                    <span class="rank-cat">爱情</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">6</span>
+                    <span class="rank-title">千与千寻</span>
+                    <span class="rank-score">9.4</span>
+                    <span class="rank-cat">动画</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">7</span>
+                    <span class="rank-title">辛德勒的名单</span>
+                    <span class="rank-score">9.5</span>
+                    <span class="rank-cat">历史</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">8</span>
+                    <span class="rank-title">盗梦空间</span>
+                    <span class="rank-score">9.4</span>
+                    <span class="rank-cat">科幻</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">9</span>
+                    <span class="rank-title">忠犬八公的故事</span>
+                    <span class="rank-score">9.4</span>
+                    <span class="rank-cat">家庭</span>
+                </div>
+                <div class="rank-item">
+                    <span class="rank-num">10</span>
+                    <span class="rank-title">海上钢琴师</span>
+                    <span class="rank-score">9.3</span>
+                    <span class="rank-cat">音乐</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="section-title" style="margin-top: 0;">
+                <h2>近期新片速递</h2>
+                <a href="#" class="more-link">更多新片 →</a>
+            </div>
+            <div class="guide-grid" style="grid-template-columns: 1fr; gap: 14px;">
+                <div class="guide-card" style="border-left-color: #f5a623;">
+                    <h3 style="display: flex; justify-content: space-between;"><span>沙丘2</span><span style="font-size:0.8rem;color:#f5a623;">2024.03</span></h3>
+                    <p style="font-size:0.85rem;">维伦纽瓦科幻巨制续篇，保罗·厄崔迪的复仇与崛起，视觉效果震撼，IMAX 必看。</p>
+                </div>
+                <div class="guide-card" style="border-left-color: #4e9af1;">
+                    <h3 style="display: flex; justify-content: space-between;"><span>周处除三害</span><span style="font-size:0.8rem;color:#4e9af1;">2024</span></h3>
+                    <p style="font-size:0.85rem;">阮经天主演的犯罪动作片，黑帮追杀令与自我救赎，生猛凌厉的华语佳作。</p>
+                </div>
+                <div class="guide-card" style="border-left-color: #7c4dff;">
+                    <h3 style="display: flex; justify-content: space-between;"><span>可怜的东西</span><span style="font-size:0.8rem;color:#7c4dff;">2024</span></h3>
+                    <p style="font-size:0.85rem;">奥斯卡获奖奇幻喜剧，怪诞美学与女性成长主题，风格独树一帜。</p>
+                </div>
+                <div class="guide-card" style="border-left-color: #e94560;">
+                    <h3 style="display: flex; justify-content: space-between;"><span>你想活出怎样的人生</span><span style="font-size:0.8rem;color:#e94560;">2024</span></h3>
+                    <p style="font-size:0.85rem;">宫崎骏告别之作，奇幻冒险背后是对战争与人生的深刻思考，值得反复品味。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 观影指南 -->
+    <div class="container">
+        <div class="section-title">
+            <h2>好片观影指南</h2>
+            <a href="#" class="more-link">全部指南 →</a>
+        </div>
+        <div class="guide-grid">
+            <article class="guide-card">
+                <h3>🎯 如何快速判断一部电影是否值得看？</h3>
+                <p>先看导演和主演的过往作品质量，再参考豆瓣/IMDb 等口碑评分，注意区分商业片与文艺片的不同评价体系。如果时间有限，可以优先关注电影节获奖影片或影评人年度推荐。</p>
+            </article>
+            <article class="guide-card">
+                <h3>📅 观影时间管理：碎片时间看什么？</h3>
+                <p>通勤或午休适合看 20-40 分钟的剧集（如动画、情景喜剧）；周末大块时间适合欣赏电影长片或迷你剧。利用好碎片时间，也能保持稳定的观影节奏。</p>
+            </article>
+            <article class="guide-card">
+                <h3>🔞 观影前需要了解的分级与背景</h3>
+                <p>部分影片包含暴力、惊悚或成人内容，观看前可查阅分级信息（如 MPAA、香港分级等）。了解影片所处的历史背景或原著设定，能大幅提升理解深度和观影体验。</p>
+            </article>
+            <article class="guide-card">
+                <h3>🎬 从“看热闹”到“看门道”</h3>
+                <p>留意镜头语言、剪辑节奏、配乐与色彩搭配。看完后可以阅读专业影评或观看导演访谈，往往能发现第一遍观看时忽略的细节与隐喻。</p>
+            </article>
+        </div>
+    </div>
+
+    <!-- FAQ 常见问题 -->
+    <div class="container">
+        <div class="faq-section">
+            <div class="section-title" style="margin-top:0;">
+                <h2>关于 avno1 好片，你可能想问</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">avno1 好片是什么类型的网站？</div>
+                <div class="faq-a">avno1 好片是一个专注影视内容推荐的平台，涵盖高分经典、热门新片、剧集、纪录片等，提供片单、影评和观影指南，帮助用户发现值得观看的好内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">这里的评分和片单来源可靠吗？</div>
+                <div class="faq-a">我们综合豆瓣、IMDb、烂番茄等公开评分数据，并参考专业影评人和资深影迷的反馈。榜单与推荐仅作参考，审美始终是主观的，建议结合自己的喜好选择。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">是否提供在线观看或下载链接？</div>
+                <div class="faq-a">本站为内容推荐与信息分享平台，不直接提供资源下载或盗版链接。你可以通过正规视频平台（如腾讯视频、爱奇艺、Netflix、Apple TV+ 等）观看相关正版内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">如何获取最新的好片推荐？</div>
+                <div class="faq-a">建议定期关注本站“本周热门”和“新片速递”栏目。你也可以使用站内搜索，或按类型标签浏览自己感兴趣的方向。</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4>avno1 好片</h4>
+                <p>专注于优质影视内容推荐，让每一次观影都成为享受。发现好片，从这里开始。</p>
+            </div>
+            <div class="footer-links">
+                <h5>快速导航</h5>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">高分榜单</a></li>
+                    <li><a href="#">最新热映</a></li>
+                    <li><a href="#">经典剧集</a></li>
+                    <li><a href="#">类型片单</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>帮助支持</h5>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系合作</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">免责条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 avno1 好片 精选影视推荐平台 | 尊重版权，支持正版内容</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+  </html>
