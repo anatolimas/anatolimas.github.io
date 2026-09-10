@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝句的诗意迟日江山丽 - 杜甫绝句赏析与春日诗境漫读</title>
+    <meta name="description" content="深入解读“迟日江山丽，春风花草香”的绝句诗意，从词句注释、画面意境、艺术手法到杜甫生平与创作背景，带你走进这首春日绝句的古典美学世界。">
+    <meta name="keywords" content="绝句的诗意,迟日江山丽,杜甫绝句,迟日江山丽春风花草香,古诗赏析,春日诗境,古典诗词">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Songti SC", "SimSun", "STSong", "Noto Serif SC", serif;
+            background-color: #f7f4ed;
+            color: #3a3228;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* 页眉 */
+        .site-header {
+            background: #4a6b5d;
+            background: linear-gradient(135deg, #3f5f52 0%, #5d7a6a 100%);
+            padding: 16px 0;
+            border-bottom: 3px solid #c5a47e;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            font-size: 28px;
+            background: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3f5f52;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+        .site-name {
+            color: #f3efe6;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-family: "Songti SC", "SimSun", serif;
+        }
+        .site-nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .site-nav a {
+            color: #e8e0d0;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 1px;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .site-nav a:hover {
+            color: #ffffff;
+            border-bottom-color: #e2c192;
+        }
+        /* 首屏 */
+        .hero {
+            background: #efeadb;
+            padding: 60px 24px 50px;
+            text-align: center;
+            border-bottom: 1px solid #d9d0bc;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 600;
+            color: #2f4a3d;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            font-family: "Songti SC", "SimSun", serif;
+        }
+        .hero-sub {
+            font-size: 20px;
+            color: #6a5c48;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        .hero-quote {
+            background: #fff;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 24px 32px;
+            border-radius: 4px;
+            border-left: 6px solid #b58d5f;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            font-size: 22px;
+            line-height: 2.2;
+            color: #3a4a3f;
+            font-family: "KaiTi", "STKaiti", serif;
+        }
+        .hero-quote .poem-line {
+            display: block;
+            font-size: 24px;
+        }
+        .hero-meta {
+            margin-top: 18px;
+            color: #8b7a60;
+            font-size: 14px;
+        }
+        /* 主要内容区 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            padding: 48px 0;
+        }
+        .content-primary {
+            min-width: 0;
+        }
+        .content-card {
+            background: #fff;
+            padding: 36px 40px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border-top: 3px solid #89a394;
+        }
+        .content-card h2 {
+            font-size: 26px;
+            color: #2f4a3d;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #c9bcab;
+            font-weight: 600;
+        }
+        .content-card h3 {
+            font-size: 20px;
+            color: #4a5f4f;
+            margin: 24px 0 10px;
+        }
+        .content-card p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        .content-card .annotation {
+            background: #f8f4ea;
+            padding: 14px 20px;
+            border-radius: 4px;
+            border-left: 4px solid #b58d5f;
+            margin: 16px 0 20px;
+            font-size: 16px;
+        }
+        .verse-explain {
+            background: #f9f7f0;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e2d9c6;
+        }
+        .verse-explain p {
+            margin-bottom: 8px;
+        }
+        .verse-original {
+            font-family: "KaiTi", "STKaiti", serif;
+            font-size: 24px;
+            color: #3f5a4a;
+            text-align: center;
+            padding: 16px 0;
+            line-height: 2.2;
+        }
+        .art-list {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        .art-list li {
+            margin-bottom: 10px;
+        }
+        /* 侧边栏 */
+        .sidebar {
+            min-width: 0;
+        }
+        .side-card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 24px 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-left: 4px solid #a98b62;
+        }
+        .side-card h3 {
+            font-size: 18px;
+            color: #3f5f52;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e8e0d2;
+            letter-spacing: 1px;
+        }
+        .side-list {
+            list-style: none;
+        }
+        .side-list li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #e3dccd;
+            font-size: 15px;
+        }
+        .side-list li:last-child {
+            border-bottom: none;
+        }
+        .side-list a {
+            color: #5a4c38;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .side-list a:hover {
+            color: #8a6f4b;
+        }
+        .poem-mini {
+            background: #faf7f0;
+            padding: 14px 16px;
+            border-radius: 4px;
+            font-family: "KaiTi", "STKaiti", serif;
+            font-size: 17px;
+            color: #4a3e2c;
+            margin-top: 8px;
+            line-height: 1.9;
+        }
+        /* 作者卡片 */
+        .author-card {
+            display: flex;
+            gap: 18px;
+            background: #f6f2e8;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-top: 22px;
+        }
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: #4a6b5d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .author-info p {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 14px;
+            border-bottom: 1px solid #eee6d8;
+            padding-bottom: 14px;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #2f4a3d;
+            margin-bottom: 6px;
+            font-size: 17px;
+        }
+        .faq-a {
+            font-size: 15px;
+            color: #5a5346;
+        }
+        /* 页脚 */
+        .site-footer {
+            background: #3a4d42;
+            color: #ddd6c8;
+            padding: 28px 0 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .footer-copy {
+            opacity: 0.8;
+        }
+        .footer-links a {
+            color: #cfc5b2;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                padding: 30px 0;
+            }
+            .sidebar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            .side-card {
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-quote {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .content-card {
+                padding: 24px 18px;
+            }
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .site-nav {
+                justify-content: center;
+                gap: 16px;
+            }
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area">
+                <div class="logo-icon">诗</div>
+                <span class="site-name">绝句诗意馆</span>
+            </div>
+            <nav class="site-nav">
+                <a href="#shangxi">诗意赏析</a>
+                <a href="#yijing">诗境漫读</a>
+                <a href="#zuozhe">杜甫与诗</a>
+                <a href="#faq">常见问答</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 首屏 Hero -->
+        <section class="hero">
+            <h1>绝句的诗意 · 迟日江山丽</h1>
+            <p class="hero-sub">春日迟迟，江山如画</p>
+            <div class="hero-quote">
+                <span class="poem-line">迟日江山丽，春风花草香。</span>
+                <span class="poem-line">泥融飞燕子，沙暖睡鸳鸯。</span>
+                <span class="hero-meta">—— 杜甫《绝句二首（其一）》</span>
+            </div>
+        </section>
+
+        <div class="container main-grid">
+            <!-- 主体内容 -->
+            <div class="content-primary">
+                <!-- 全诗与注解 -->
+                <article class="content-card" id="quanshi">
+                    <h2>《绝句二首·其一》全诗</h2>
+                    <div class="verse-original">
+                        迟日江山丽，春风花草香。<br>
+                        泥融飞燕子，沙暖睡鸳鸯。
+                    </div>
+                    <div class="annotation">
+                        <strong>【注释】</strong><br>
+                        迟日：春日日渐长，故曰“迟日”。语出《诗经·豳风·七月》“春日迟迟”。<br>
+                        泥融：春天气温回升，泥土变得湿润松软。<br>
+                        鸳鸯：一种水鸟，常成对活动，象征温情与安宁。
+                    </div>
+                    <p>这是一首极富画面感的春日即景小诗。全诗以“迟日”领起，点明春日的和煦与昼长，随后以“江山丽”三字拉开一幅宏阔明丽的自然画卷。第二句“春风花草香”则调动嗅觉，使画面从视觉扩展到整个感官世界，春风拂面，花草的芬芳仿佛穿透纸背。</p>
+                    <p>后两句笔触由宏转微：燕子衔泥筑巢，在松软的泥土间穿梭飞翔；鸳鸯静卧暖沙之上，安然入梦。一“飞”一“睡”，一动一静，生命在春日暖阳中各自安好，构成绝妙的和谐。</p>
+                </article>
+
+                <!-- 诗意深度赏析 -->
+                <article class="content-card" id="shangxi">
+                    <h2>绝句的诗意：逐句细品</h2>
+                    <p>“迟日江山丽”是这首诗的视觉基调。春日渐长，阳光柔和而温暖，普照山川河流。这里的“丽”不仅是色彩明丽，更包含了万物在阳光下舒展的生机。杜甫用极简的五个字，将宏大而明媚的春日江山精准地勾勒出来。</p>
+                    <p>“春风花草香”把读者从视觉带入嗅觉。春风是温柔的载体，它送来了青草与野花的混合香气。这一句让整首诗的意境变得立体，仿佛读者也站在那阵春风之中。</p>
+                    <p>第三句“泥融飞燕子”聚焦于近景。春泥融化，燕子归来，忙碌地衔泥筑巢。一个“飞”字充满动态，也暗示了春日的活力与繁衍的气息。燕子的归来，是春天最灵动的注脚。</p>
+                    <p>末句“沙暖睡鸳鸯”则以静态收束全篇。日光照在河滩上，沙粒变得温暖，鸳鸯成对而眠。这种安详的画面与燕子的忙碌形成对比，但两者共同构成了春日和谐的生命状态。</p>
+                    <div class="verse-explain">
+                        <p><strong>诗意核心：</strong>这首诗没有直接抒情，而是通过四种意象——江山、花草、燕子、鸳鸯，让读者自己感受春日的明媚、温暖、生机与安宁。杜甫以画入诗，每一句都是一帧独立画面，合起来则是一卷完整的春日长轴。</p>
+                    </div>
+                </article>
+
+                <!-- 诗境漫读 -->
+                <article class="content-card" id="yijing">
+                    <h2>诗境漫读：一首诗里的春日宇宙</h2>
+                    <p>“绝句的诗意迟日江山丽”之所以被无数人喜爱，是因为它在短短二十字中构建了一个完整而丰富的春日世界。从远山到近水，从天空到地面，从动态的燕子到静态的鸳鸯，杜甫以目光为镜头，完成了一次精妙的自然巡礼。</p>
+                    <p>这首诗创作于杜甫成都草堂时期。彼时诗人经历了颠沛流离，暂时获得安定的生活。因此，诗中的明媚与宁静，不仅是自然实景，更折射出诗人内心对和平与安宁的珍视。春天不再只是季节，更是一种生命状态的隐喻。</p>
+                    <p>诗中“迟日”一词，既写实又含情。因为内心安适，所以感到太阳移动得缓慢，白昼格外悠长。这种“慢”的感觉，正是现代人在快节奏生活中所缺失的。读这首绝句，不妨放慢呼吸，想象自己正站在千年前的那个春日江畔。</p>
+                </article>
+
+                <!-- 杜甫与创作 -->
+                <article class="content-card" id="zuozhe">
+                    <h2>杜甫与《绝句二首》</h2>
+                    <p>公元759年，杜甫辞官入蜀，在成都西郊浣花溪畔营建草堂，过上了相对安定的生活。这组《绝句二首》便作于草堂时期。饱经离乱的诗人，终于在这片春色中获得了片刻的慰藉。</p>
+                    <div class="author-card">
+                        <div class="author-avatar">甫</div>
+                        <div class="author-info">
+                            <p><strong>杜甫</strong>（712—770），字子美，自号少陵野老。唐代伟大的现实主义诗人，被后世尊为“诗圣”。其诗沉郁顿挫，忧国忧民，但在草堂时期也留下了不少清新明快的写景佳作。</p>
+                            <p>《绝句二首》其一写春景之明丽，其二写江碧鸟白之色彩，都是杜甫诗中少有的轻松愉悦之作。</p>
+                        </div>
+                    </div>
+                    <p style="margin-top:16px;">理解这一创作背景，能帮助我们更深刻地体会“迟日江山丽”中的情感重量——经历过寒冬的人，才更懂得春日的可贵；经历过漂泊的人，才更珍惜沙暖鸳鸯的安宁。</p>
+                    <h3>绝句的艺术特点</h3>
+                    <ul class="art-list">
+                        <li><strong>语言极简：</strong>二十字无一赘语，每个字都承载着精准的意象。</li>
+                        <li><strong>对仗精工：</strong>“迟日”对“春风”，“江山丽”对“花草香”，工整而不失自然。</li>
+                        <li><strong>动静相生：</strong>燕子飞与鸳鸯睡，形成动与静的完美对照。</li>
+                        <li><strong>感官交融：</strong>视觉与嗅觉交织，使诗意更加饱满。</li>
+                    </ul>
+                </article>
+
+                <!-- FAQ -->
+                <article class="content-card" id="faq">
+                    <h2>关于“迟日江山丽”的常见问答</h2>
+                    <div class="faq-item">
+                        <div class="faq-q">“迟日”是什么意思？为什么不是“春日”？</div>
+                        <div class="faq-a">“迟日”出自《诗经·豳风·七月》“春日迟迟”，意为春天的太阳移动迟缓，白昼渐长。用“迟日”比“春日”更有质感，暗示了阳光的温暖与时间的悠长感，是这首诗画意的重要组成部分。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">这首诗表达了诗人怎样的情感？</div>
+                        <div class="faq-a">表面上是一首纯粹的春景诗，但结合杜甫草堂时期的背景，可感受到诗人历经离乱后对安宁生活的珍视与满足。诗中的明丽与和谐，也是诗人内心片刻平静的映射。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">“泥融飞燕子”中的“融”字好在哪里？</div>
+                        <div class="faq-a">“融”字精准地捕捉了春日泥土解冻、松软湿润的状态。它不仅写出季节特征，还暗示了气温回升、万物复苏的进程，为燕子筑巢提供了条件，体现了杜甫炼字的功力。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">这首绝句属于什么体裁？</div>
+                        <div class="faq-a">这是五言绝句，每句五字，共四句。杜甫这组《绝句二首》均为此体裁。五绝篇幅短小，要求语言高度凝练，意境完整。</div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 侧边栏 -->
+            <aside class="sidebar">
+                <div class="side-card">
+                    <h3>诗中意象</h3>
+                    <ul class="side-list">
+                        <li>🌿 迟日 —— 春日的暖阳</li>
+                        <li>⛰️ 江山 —— 宏阔的自然</li>
+                        <li>🌸 花草 —— 芬芳的生机</li>
+                        <li>🐦 燕子 —— 归来的活力</li>
+                        <li>💤 鸳鸯 —— 安宁的温情</li>
+                    </ul>
+                </div>
+                <div class="side-card">
+                    <h3>相关名句</h3>
+                    <div class="poem-mini">
+                        泥融飞燕子，<br>
+                        沙暖睡鸳鸯。
+                    </div>
+                    <p style="font-size:14px; color:#7a6b55; margin-top:10px;">—— 动静之间，尽显春日和谐</p>
+                </div>
+                <div class="side-card">
+                    <h3>阅读小贴士</h3>
+                    <p style="font-size:15px; color:#5a4f3e;">读这首诗时，可以尝试闭上眼睛，想象阳光洒在身上的温度，闻一闻空气中若有若无的花草香，听一听燕子的呢喃。这样，你便能穿越千年，与杜甫共享同一片春光。</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-copy">
+                © 绝句诗意馆 · 迟日江山丽专题
+            </div>
+            <div class="footer-links">
+                <a href="#shangxi">诗意赏析</a>
+                <a href="#yijing">诗境漫读</a>
+                <a href="#faq">常见问答</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
